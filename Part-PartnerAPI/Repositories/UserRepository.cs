@@ -1,6 +1,6 @@
 ﻿namespace Part_PartnerAPI.Repositories
 {
-    public class _
+    public class UserRepository
     {
     }
 }
