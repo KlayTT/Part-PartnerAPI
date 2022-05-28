@@ -20,7 +20,7 @@ CREATE TABLE Users (
   Id INT NOT NULL PRIMARY KEY IDENTITY,
   UserName VARCHAR (255) NOT NUll,
   Email VARCHAR (255) NOT NUll,
-  FirebaseUserId NVARCHAR (255) NOT NUll,
+  FirebaseUserId NVARCHAR (28) NOT NUll,
 
   CONSTRAINT UQ_FirebaseUserId UNIQUE(FirebaseUserId)
 );
@@ -59,4 +59,3 @@ INSERT INTO Cars ([Name], [Year], Color, ImageURL, [Uid]) VALUES ('Nissan 300ZX'
 INSERT INTO Parts ([Name], Price, ImageURL, Miles, [Uid]) VALUES ('Duralast Starter 19442', $119.99, 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSWGl0FCEd41XWr68IM23OF9Fme9d2V_dnO743sY4l_gGil_fM4PR-xP5KrICyKqEUiPnDhN3AoyA&usqp=CAc', '155k','1WEZNgZ96BZf5yfHWeSFM84A0N03');
 
 INSERT INTO Parts ([Name], Price, ImageURL, Miles, [Uid]) VALUES ('Duralast Starter 19443', $119.99, 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSWGl0FCEd41XWr68IM23OF9Fme9d2V_dnO743sY4l_gGil_fM4PR-xP5KrICyKqEUiPnDhN3AoyA&usqp=CAc', '155k','Sy0CbC9WcJSslguFZAkMa4fX2Af2');
-
