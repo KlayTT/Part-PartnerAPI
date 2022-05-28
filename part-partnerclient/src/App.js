@@ -1,5 +1,5 @@
 import './App.css';
-import 'firebase/compat/auth';
+import firebase from 'firebase/compat/app';
 
 
 const firebaseConfig = {
