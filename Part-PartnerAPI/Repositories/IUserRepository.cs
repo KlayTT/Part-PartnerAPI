@@ -4,10 +4,10 @@ namespace Part_PartnerAPI.Repositories
 {
     public interface IUserRepository
     {
-        List<Users> GetAllCars();
-        Users GetUserById(int id);
+        List<Users> GetAllUsers();
+        Users GetByFirebaseUserId(string firebaseUserId);
         void AddUser(Users users);
         void UpdateUser(Users users);
-        void DeleteUser(int id);
+        void DeleteUser(string firebaseUserId);
     }
 }
