@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Part_PartnerAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/users")]
     [ApiController]
     public class UserController : Controller
     {
@@ -38,6 +38,19 @@ namespace Part_PartnerAPI.Controllers
             }
 
             return Ok(matchingUser);
+        }
+
+        [Authorize]
+        [HttpGet("DoesUserExist/{firebaseUserId}")]
+        public IActionResult DoesUserExist(string firebaseUserId)
+        {
+            var matchingUser = _userRepo.GetByFirebaseUserId(firebaseUserId);
+            if (matchingUser == null)
+            {
+                return NotFound();
+            }
+
+            return Ok();
         }
 
         // POST

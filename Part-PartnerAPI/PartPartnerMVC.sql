@@ -42,8 +42,8 @@ CREATE TABLE Parts (
   Price DECIMAL(17, 2) NOT NULL,
   ImageURL VARCHAR (255) NOT NUll,
   Miles VARCHAR (255),
-  DatePurchased DATETIME,
-  NextMatnience DATETIME,
+  DatePurchased VARCHAR (255),
+  NextMatnience VARCHAR (255),
   [Uid] VARCHAR(255) NOT NULL,
 
 );

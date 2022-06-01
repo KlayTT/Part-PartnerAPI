@@ -5,56 +5,56 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Part_PartnerAPI.Controllers
 {
-        [Route("api/cars")]
-        [ApiController]
-    public class CarController : Controller
+    [Route("api/parts")]
+    [ApiController]
+    public class PartController : Controller
     {
-        private readonly ICarRepository _carRepo;
+        private readonly IPartRepository _partRepo;
 
-        public CarController(ICarRepository carRepository)
+        public PartController(IPartRepository partRepository)
         {
-            _carRepo = carRepository;
+            _partRepo = partRepository;
         }
 
         // Get All
         [HttpGet]
-        public List<Cars> GetAllCars()
+        public List<Parts> GetAllParts()
         {
-            return _carRepo.GetAllCars();
+            return _partRepo.GetAllParts();
         }
 
         // Get Id
         [HttpGet("{id}")]
-        public Cars Get(int id)
+        public Parts Get(int id)
         {
-            return _carRepo.GetCarById(id);
+            return _partRepo.GetPartById(id);
         }
 
         // Post
         [HttpPost]
-        public IActionResult Post(Cars newCar)
+        public IActionResult Post(Parts newPart)
         {
-            _carRepo.AddCar(newCar);
-            return Ok(newCar);
+            _partRepo.AddPart(newPart);
+            return Ok(newPart);
         }
 
         // Put
         [EnableCors("_myAllowSpecificOrigins")]
         [HttpPatch("{id}")]
-        public IActionResult Put(int id, Cars cars)
+        public IActionResult Put(int id, Parts parts)
         {
-            if (id != cars.Id)
+            if (id != parts.Id)
             {
                 return BadRequest();
             }
-            var existingCar = _carRepo.GetCarById(id);
-            if (existingCar == null)
+            var existingPart = _partRepo.GetPartById(id);
+            if (existingPart == null)
             {
                 return NotFound();
             }
             else
             {
-                _carRepo.UpdateCar(cars);
+                _partRepo.UpdatePart(parts);
                 return NoContent();
             }
         }
@@ -63,14 +63,14 @@ namespace Part_PartnerAPI.Controllers
         [HttpDelete("{id}")]
         public ActionResult Delete(int id, IFormCollection collection)
         {
-            var matchingCar = _carRepo.GetCarById(id);
-            if (matchingCar == null)
+            var matchingPart = _partRepo.GetPartById(id);
+            if (matchingPart == null)
             {
                 return NotFound();
             }
             else
             {
-                _carRepo.DeleteCar(matchingCar.Id);
+                _partRepo.DeletePart(matchingPart.Id);
                 return NoContent();
             }
         }

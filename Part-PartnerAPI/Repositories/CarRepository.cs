@@ -26,7 +26,7 @@ namespace Part_PartnerAPI.Repositories
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                        SELECT Id, [Name], Color, Year, ImageUrl, PartId, Uid
+                        SELECT Id, [Name], Color, Year, ImageUrl, PartId, [Uid]
                         FROM Cars
                     ";
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -56,6 +56,7 @@ namespace Part_PartnerAPI.Repositories
                 }
             }
         }
+
         public Cars GetCarById(int id)
         {
             using (SqlConnection conn = Connection)
@@ -64,7 +65,7 @@ namespace Part_PartnerAPI.Repositories
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                        SELECT Id, [Name], Color, Year, ImageUrl, PartId, Uid
+                        SELECT Id, [Name], Color, Year, ImageUrl, PartId, [Uid]
                         FROM Cars
                         WHERE Id = @id
                     ";
@@ -100,6 +101,7 @@ namespace Part_PartnerAPI.Repositories
                 }
             }
         }
+
         public void AddCar(Cars cars)
         {
             using (SqlConnection conn = Connection)
@@ -108,15 +110,15 @@ namespace Part_PartnerAPI.Repositories
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                    INSERT INTO Cars ([Name], Color, Year, ImageUrl, PartId, Uid)
+                    INSERT INTO Cars ([Name], Color, Year, ImageUrl, PartId, [Uid])
                     OUTPUT INSERTED.ID
-                    VALUES (@name, @color, @year, @ImageUrl, @PartId, @Uid)
+                    VALUES (@name, @color, @year, @ImageUrl, @PartId, @uid)
                 ";
                     cmd.Parameters.AddWithValue("@name", cars.Name);
                     cmd.Parameters.AddWithValue("@color", cars.Color);
                     cmd.Parameters.AddWithValue("@year", cars.Year);
                     cmd.Parameters.AddWithValue("@ImageUrl", cars.ImageUrl);
-                    cmd.Parameters.AddWithValue("@Uid", cars.Uid);
+                    cmd.Parameters.AddWithValue("@uid", cars.Uid);
 
                     if (cars.PartId == null)
                     {
@@ -133,6 +135,7 @@ namespace Part_PartnerAPI.Repositories
                 }
             }
         }
+
         public void UpdateCar(Cars cars)
         {
             using (SqlConnection conn = Connection)
@@ -148,7 +151,8 @@ namespace Part_PartnerAPI.Repositories
                         Year = @year,
                         ImageUrl = @ImageUrl,
                         PartId = @PartId,
-                        Uid = @Uid
+                        [Uid] = @uid
+                        [Uid] = @uid
                     WHERE Id = @id
                 ";
 
@@ -156,7 +160,7 @@ namespace Part_PartnerAPI.Repositories
                     cmd.Parameters.AddWithValue("@color", cars.Color);
                     cmd.Parameters.AddWithValue("@year", cars.Year);
                     cmd.Parameters.AddWithValue("@ImageUrl", cars.ImageUrl);
-                    cmd.Parameters.AddWithValue("@Uid", cars.Uid);
+                    cmd.Parameters.AddWithValue("@uid", cars.Uid);
                     cmd.Parameters.AddWithValue("@id", cars.Id);
 
                     if (cars.PartId == null)
@@ -172,6 +176,7 @@ namespace Part_PartnerAPI.Repositories
                 }
             }
         }
+
         public void DeleteCar(int id)
         {
             using (SqlConnection conn = Connection)

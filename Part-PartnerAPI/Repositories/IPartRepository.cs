@@ -6,8 +6,8 @@ namespace Part_PartnerAPI.Repositories
     {
         List<Parts> GetAllParts();
         Parts GetPartById(int id);
-        void AddCar(Parts parts);
-        void UpdateCar(Parts parts);
+        void AddPart(Parts parts);
+        void UpdatePart(Parts parts);
         void DeletePart(int id);
     }
 }

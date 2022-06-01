@@ -50,6 +50,7 @@ namespace Part_PartnerAPI.Repositories
                 }
             }
         }
+
         public Users GetByFirebaseUserId(string firebaseUserId)
         {
             using (SqlConnection conn = Connection)
@@ -89,6 +90,7 @@ namespace Part_PartnerAPI.Repositories
                 }
             }
         }
+
         public void AddUser(Users users)
         {
             using (SqlConnection conn = Connection)
@@ -111,6 +113,7 @@ namespace Part_PartnerAPI.Repositories
                 }
             }
         }
+
         public void UpdateUser(Users users)
         {
             using (SqlConnection conn = Connection)
@@ -133,6 +136,7 @@ namespace Part_PartnerAPI.Repositories
                 }
             }
         }
+
         public void DeleteUser (string firebaseUserId)
         {
             using (SqlConnection conn = Connection)
