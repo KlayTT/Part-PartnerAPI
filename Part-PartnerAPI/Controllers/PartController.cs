@@ -18,9 +18,9 @@ namespace Part_PartnerAPI.Controllers
 
         // Get All
         [HttpGet]
-        public List<Parts> GetAllParts()
+        public List<Parts> GetAllParts(string uid)
         {
-            return _partRepo.GetAllParts();
+            return _partRepo.GetAllParts(uid);
         }
 
         // Get Id

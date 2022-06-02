@@ -18,7 +18,7 @@ namespace Part_PartnerAPI.Repositories
             }
         }
 
-        public List<Parts> GetAllParts()
+        public List<Parts> GetAllParts(string uid)
         {
             using (SqlConnection conn = Connection)
             {
@@ -28,7 +28,10 @@ namespace Part_PartnerAPI.Repositories
                     cmd.CommandText = @"
                        SELECT Id, [Name], Price, ImageURL, Miles, DatePurchased, NextMatnience, [Uid]
                        FROM Parts
+                       WHERE [Uid] = @uid;
                     ";
+
+                    cmd.Parameters.AddWithValue("@uid", uid);
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     List<Parts> parts = new List<Parts>();
