@@ -3,7 +3,7 @@ import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { login } from '../Api/authManager';
 
-export default function Login({ }) {
+export default function Login() {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const navigate = useNavigate();
