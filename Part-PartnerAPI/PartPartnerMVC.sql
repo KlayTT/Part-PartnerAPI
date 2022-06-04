@@ -48,8 +48,8 @@ CREATE TABLE Parts (
 
 );
 
-INSERT INTO Users (UserName, Email, FirebaseUserId) VALUES ('KlayTT', 'klaythacker11@gmail.com','1WEZNgZ96BZf5yfHWeSFM84A0N03');
-INSERT INTO Users (UserName, Email, FirebaseUserId) VALUES ('Tru G', 'klaythackerworkmail@gmail.com','Sy0CbC9WcJSslguFZAkMa4fX2Af2');
+INSERT INTO Users (UserName, Email, FirebaseUserId) VALUES ('KlayTT', 'klaythacker11@gmail.com','Sy0CbC9WcJSslguFZAkMa4fX2Af2');
+INSERT INTO Users (UserName, Email, FirebaseUserId) VALUES ('Tru G', 'klaythackerworkmail@gmail.com','1WEZNgZ96BZf5yfHWeSFM84A0N03');
 
 INSERT INTO Cars ([Name], [Year], Color, ImageURL, [Uid]) VALUES ('VW GTI Custom', 'Navy Blue', '2013', 'https://i.pinimg.com/originals/88/95/6e/88956ebf9277bf940401b3e0b370325b.jpg','1WEZNgZ96BZf5yfHWeSFM84A0N03');
 INSERT INTO Cars ([Name], [Year], Color, ImageURL, [Uid]) VALUES ('Porsche 911 GT3 RS', 'Black', '2019' ,'https://cdn1.mecum.com/auctions/ca0821/ca0821-465261/images/1-1621285098983.jpg?1628545960000','1WEZNgZ96BZf5yfHWeSFM84A0N03');

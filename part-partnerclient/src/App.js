@@ -2,9 +2,11 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import firebase from 'firebase/compat/app';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Spinner } from 'reactstrap';
 import { onLoginStatusChange } from './Api/authManager';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { getUsers } from './Api/Data/UsersData';
+import PublicRoutes from './Routes/PublicRoutes';
 
 
 const firebaseConfig = {
@@ -20,19 +22,19 @@ function App() {
 
         const auth = getAuth();
         onAuthStateChanged(auth, (user) => {
-            getUsers(user.uid).then()
+            if (user) {
+                getUsers(user.uid).then(() => {
+                    if (user.isLoggedIn === null) {
+                        return <Spinner className="app-spinner light" />;
+                    }
+                })
+            }
         });
     }, []);
 
-    if (isLoggedIn === null) {
-        return <Spinner className="app-spinner light" />;
-    }
-
   return (
       <div>
-          <h1>
-              Hi
-          </h1>
+          <PublicRoutes isLoggedIn={isLoggedIn} />
       </div>
   );
 }
