@@ -1,8 +1,8 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
-import { createUser } from "./data/UsersData";
+import { createUser } from "./Data/UsersData";
 
-const _apiUrl = "https://localhost:7297";
+const _apiUrl = "https://localhost:7297/api/users";
 
 const _doesUserExist = (firebaseUserId) => {
     return getToken().then((token) =>
