@@ -1,0 +1,23 @@
+#part-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #36454F;
+}
+
+#part-cards {
+    width: 400px;
+    height: 500px;
+    margin: 20px;
+
+    .card-img-top {
+        max-height: 250px;
+    }
+}
+
+.part-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
