@@ -34,7 +34,7 @@ function App() {
 
   return (
       <div>
-          <PublicRoutes isLoggedIn={isLoggedIn} />
+          <PublicRoutes uid={user.} isLoggedIn={isLoggedIn} />
       </div>
   );
 }

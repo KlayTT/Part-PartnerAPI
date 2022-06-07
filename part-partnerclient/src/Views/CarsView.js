@@ -9,7 +9,7 @@ export default function CarsView() {
     useEffect(() => {
         let isMounted = true;
         if (isMounted) {
-            getCars().then(setCars);
+            getCars(uid).then(setCars);
         }
         return () => { isMounted = false; }
     }, []);
