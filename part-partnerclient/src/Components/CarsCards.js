@@ -19,17 +19,30 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
-export default function CarsCards({ car }) {
+export default function CarsCards({ car, isLoggedIn }) {
+
 
     return (
-        <div className="card">
+    
+        <div className="card" id="car-cards">
             <img className="card-img-top" src={car.imageUrl} alt="Car" />
-                <div className="card-body">
-                    <h5 className="card-title">Card title</h5>
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <Button className="btn btn-primary">Go somewhere</Button>
-                </div>
-        </div>
+            <div className="card-body">
+                <h5 className="card-title">{car.name}</h5>
+                <p className="card-text">{car.year}</p>
+                <p className="card-text">{car.color}</p>
+                <Button className="btn btn-primary">View</Button>
+        {
+        car.uid === uid || isLoggedIn ? (
+            <div>
+                <Button className="btn btn-primary">Edit</Button>
+                <Button className="btn btn-primary">Delete</Button>
+            </div>
+        ) : (
+            ""
+        )
+    }
+            </div >
+        </div >
         );
 
 };
