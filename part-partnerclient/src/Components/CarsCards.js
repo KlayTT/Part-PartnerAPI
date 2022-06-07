@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-//import { deleteCar, getSingleCar, updateCar } from '../api/data/CarsData';
+//import { deleteCar, getSingleCar, updateCar } from '../Api/Data/CarsData';
 import firebase from 'firebase/compat/app';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { Button } from 'reactstrap';
@@ -26,7 +25,7 @@ export default function CarsCards({ car, isLoggedIn }) {
     
         <div className="card" id="car-cards">
             <img className="card-img-top" src={car.imageUrl} alt="Car" />
-            <div className="card-body">
+            <div className="car-body">
                 <h5 className="card-title">{car.name}</h5>
                 <p className="card-text">{car.year}</p>
                 <p className="card-text">{car.color}</p>
