@@ -1,0 +1,19 @@
+#car-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #36454F;
+}
+
+#car-cards {
+    width: 400px;
+    height: 500px;
+    margin: 20px;
+}
+
+.car-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
