@@ -1,3 +1,4 @@
+using Part_PartnerAPI.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
@@ -38,6 +39,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddTransient<ICarRepository, CarRepository>();
+builder.Services.AddTransient<IUserRepository, UserRepository>();
+builder.Services.AddTransient<IPartRepository, PartRepository>();
 
 var app = builder.Build();
 
@@ -52,6 +56,7 @@ app.UseHttpsRedirection();
 
 app.UseCors(builder => { builder.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin(); });
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

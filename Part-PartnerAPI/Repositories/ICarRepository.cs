@@ -4,7 +4,7 @@ namespace Part_PartnerAPI.Repositories
 {
     public interface ICarRepository
     {
-        List<Cars> GetAllCars();
+        List<Cars> GetAllCars(string uid);
         Cars GetCarById(int id);
         void AddCar(Cars cars);
         void UpdateCar(Cars cars);

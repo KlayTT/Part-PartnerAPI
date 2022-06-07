@@ -18,7 +18,7 @@ namespace Part_PartnerAPI.Repositories
             }
         }
 
-        public List<Cars> GetAllCars()
+        public List<Cars> GetAllCars(string uid)
         {
             using (SqlConnection conn = Connection)
             {
@@ -26,9 +26,12 @@ namespace Part_PartnerAPI.Repositories
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                        SELECT Id, [Name], Color, Year, ImageUrl, PartId, Uid
+                        SELECT Id, [Name], Color, Year, ImageUrl, PartId, [Uid]
                         FROM Cars
+                        WHERE [Uid] = @uid;
                     ";
+
+                    cmd.Parameters.AddWithValue("@uid", uid);
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     List<Cars> cars = new List<Cars>();
@@ -53,6 +56,144 @@ namespace Part_PartnerAPI.Repositories
                     reader.Close();
 
                     return cars;
+                }
+            }
+        }
+
+        public Cars GetCarById(int id)
+        {
+            using (SqlConnection conn = Connection)
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                        SELECT Id, [Name], Color, Year, ImageUrl, PartId, [Uid]
+                        FROM Cars
+                        WHERE Id = @id
+                    ";
+
+                    cmd.Parameters.AddWithValue("@id", id);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        Cars cars = new Cars
+                        {
+                            Id = reader.GetInt32(reader.GetOrdinal("Id")),
+                            Name = reader.GetString(reader.GetOrdinal("Name")),
+                            Year = reader.GetString(reader.GetOrdinal("Color")),
+                            Color = reader.GetString(reader.GetOrdinal("Year")),
+                            ImageUrl = reader.GetString(reader.GetOrdinal("ImageUrl")),
+                            Uid = reader.GetString(reader.GetOrdinal("Uid")),
+                        };
+                        if (reader.IsDBNull(reader.GetOrdinal("PartId")) == false)
+                        {
+                            cars.PartId = reader.GetString(reader.GetOrdinal("PartId"));
+                        }
+
+                        reader.Close();
+                        return cars;
+                    }
+                    else
+                    {
+                        reader.Close();
+                        return null;
+                    }
+                }
+            }
+        }
+
+        public void AddCar(Cars cars)
+        {
+            using (SqlConnection conn = Connection)
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                    INSERT INTO Cars ([Name], Color, Year, ImageUrl, PartId, [Uid])
+                    OUTPUT INSERTED.ID
+                    VALUES (@name, @color, @year, @ImageUrl, @PartId, @uid)
+                ";
+                    cmd.Parameters.AddWithValue("@name", cars.Name);
+                    cmd.Parameters.AddWithValue("@color", cars.Color);
+                    cmd.Parameters.AddWithValue("@year", cars.Year);
+                    cmd.Parameters.AddWithValue("@ImageUrl", cars.ImageUrl);
+                    cmd.Parameters.AddWithValue("@uid", cars.Uid);
+
+                    if (cars.PartId == null)
+                    {
+                        cmd.Parameters.AddWithValue("@PartId", DBNull.Value);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@PartId", cars.PartId);
+                    }
+
+                    int newlyCreatedId = (int)cmd.ExecuteScalar();
+
+                    cars.Id = newlyCreatedId;
+                }
+            }
+        }
+
+        public void UpdateCar(Cars cars)
+        {
+            using (SqlConnection conn = Connection)
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                    UPDATE Cars
+                    SET
+                        [Name] = @name,
+                        Color = @color,
+                        Year = @year,
+                        ImageUrl = @ImageUrl,
+                        PartId = @PartId,
+                        [Uid] = @uid
+                        [Uid] = @uid
+                    WHERE Id = @id
+                ";
+
+                    cmd.Parameters.AddWithValue("@name", cars.Name);
+                    cmd.Parameters.AddWithValue("@color", cars.Color);
+                    cmd.Parameters.AddWithValue("@year", cars.Year);
+                    cmd.Parameters.AddWithValue("@ImageUrl", cars.ImageUrl);
+                    cmd.Parameters.AddWithValue("@uid", cars.Uid);
+                    cmd.Parameters.AddWithValue("@id", cars.Id);
+
+                    if (cars.PartId == null)
+                    {
+                        cmd.Parameters.AddWithValue("@PartId", DBNull.Value);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@PartId", cars.PartId);
+                    }
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void DeleteCar(int id)
+        {
+            using (SqlConnection conn = Connection)
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                    DELETE FROM Cars
+                    WHERE Id = @id
+                ";
+                    cmd.Parameters.AddWithValue("id", id);
+
+                    cmd.ExecuteNonQuery();
                 }
             }
         }
