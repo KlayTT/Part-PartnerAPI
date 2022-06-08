@@ -30,7 +30,6 @@ namespace Part_PartnerAPI.Repositories
                         FROM Cars
                     ";
 
-//                    cmd.Parameters.AddWithValue("@uid", uid);
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     List<Cars> cars = new List<Cars>();

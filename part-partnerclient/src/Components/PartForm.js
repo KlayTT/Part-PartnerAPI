@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { createCars, updateCars } from '../Api/Data/CarsData';
+import { createParts, updateParts } from '../Api/Data/PartsData';
 
 const initialState = {
     name: "",
-    year: "",
-    color: "",
+    price: "",
     imageUrl: "",
+    miles: "",
+    datePurchased: "",
+    nextMatnience: "",
     uid: "",
 }
 
-export default function CarForm({ obj }) {
+export default function PartForm({ obj }) {
     const { id } = useParams();
     const [formInput, setFormInput] = useState(initialState);
     const navigate = useNavigate();
@@ -42,14 +44,14 @@ export default function CarForm({ obj }) {
         e.preventDefault();
 
         if (id) {
-            updateCars(formInput).then(() => {
+            updateParts(formInput).then(() => {
                 resetForm();
-                navigate('/cars')
+                navigate('/parts')
             });
         } else {
-            createCars({ ...formInput }).then(() => {
+            createParts({ ...formInput }).then(() => {
                 resetForm();
-                navigate('/cars')
+                navigate('/parts')
             });
         }
     };
@@ -65,7 +67,7 @@ export default function CarForm({ obj }) {
                     New Stuff
                 </h2>
                 <div
-                    className="card-body" id="cars-form"
+                    className="card-body" id="parts-form"
                 >
                     <h5 className="card-title">Enter new Car Stock</h5>
                     <form onSubmit={handleSubmit}>
@@ -79,21 +81,12 @@ export default function CarForm({ obj }) {
                         />
                         <p />
                         <input
-                            id="year"
-                            name="year"
-                            value={formInput.year}
+                            id="price"
+                            name="price"
+                            value={formInput.price}
                             onChange={handleChange}
                             required
-                            placeholder="Item Year"
-                        />
-                        <p />
-                        <input
-                            id="color"
-                            name="color"
-                            value={formInput.color}
-                            onChange={handleChange}
-                            required
-                            placeholder="Item Color"
+                            placeholder="Item Price"
                         />
                         <p />
                         <input
@@ -102,7 +95,34 @@ export default function CarForm({ obj }) {
                             value={formInput.imageUrl}
                             onChange={handleChange}
                             required
-                            placeholder="Item Image"
+                            placeholder="Item ImageUrl"
+                        />
+                        <p />
+                        <input
+                            id="miles"
+                            name="miles"
+                            value={formInput.miles}
+                            onChange={handleChange}
+                            required
+                            placeholder="Item Miles"
+                        />
+                        <p />
+                        <input
+                            id="datePurchased"
+                            name="datePurchased"
+                            value={formInput.datePurchased}
+                            onChange={handleChange}
+                            required
+                            placeholder="Item Date Purchased"
+                        />
+                        <p />
+                        <input
+                            id="nextMatnience"
+                            name="nextMatnience"
+                            value={formInput.nextMatnience}
+                            onChange={handleChange}
+                            required
+                            placeholder="Item Next Matnience"
                         />
                         <p />
                         <input
@@ -132,10 +152,10 @@ export default function CarForm({ obj }) {
     );
 }
 
-CarForm.propTypes = {
+PartForm.propTypes = {
     obj: PropTypes.shape(PropTypes.obj),
 };
 
-CarForm.defaultProps = {
+PartForm.defaultProps = {
     obj: {},
 };

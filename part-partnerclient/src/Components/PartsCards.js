@@ -31,7 +31,7 @@ export default function PartsCards({ part, setParts, isLoggedIn }) {
             <div className="part-body">
                 <h5 className="card-title">{part.name}</h5>
                 <p className="card-text">{part.price}</p>
-                <p className="card-text">{part.Miles}</p>
+                <p className="card-text">{part.miles}</p>
                 <p className="card-text">{part.datePurchased}</p>
                 <p className="card-text">{part.nextMatnience}</p>
                 <Link to={`/parts-single/${part.id}`} className="btn btn-success">
