@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import getParts from '../Api/Data/PartsData';
+import { getParts } from '../Api/Data/PartsData';
 import { Link } from 'react-router-dom';
 import PartsCards from '../Components/PartsCards';
 
