@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-//import { deleteCar, getSingleCar, updateCar } from '../Api/Data/CarsData';
+import { deleteCars, getSingleCar, updateCar } from '../Api/Data/CarsData';
 import firebase from 'firebase/compat/app';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { Button } from 'reactstrap';
@@ -18,8 +18,11 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
-export default function CarsCards({ car, isLoggedIn }) {
+export default function CarsCards({ car, setCars, isLoggedIn }) {
 
+    const handleDelete = () => {
+        deleteCars(car.id).then((car) => setCars(car));
+    };
 
     return (
     
@@ -34,7 +37,13 @@ export default function CarsCards({ car, isLoggedIn }) {
         car.uid === uid || isLoggedIn ? (
             <div>
                 <Button className="btn btn-primary">Edit</Button>
-                <Button className="btn btn-primary">Delete</Button>
+                <Button
+                    onClick={() => handleDelete('delete')}
+                    className="btn btn-danger"
+                    type="button"
+                >
+                    Delete
+                </Button>
             </div>
         ) : (
             ""
