@@ -23,13 +23,13 @@ const createCars = (obj) => new Promise((resolve, reject) => {
         .catch(reject);
 });
 
-const updateCars = (obj) => ((resolve, reject) => {
+const updateCars = (updateObj) => new Promise((resolve, reject) => {
     axios
-        .patch(`${dbUrl}/${obj.id}`, obj)
+        .patch(`${dbUrl}/${updateObj.id}`, updateObj)
         .then(() => getCars().then(resolve))
         .catch(reject);
-
 });
+
 
 const deleteCars = (id) => new Promise((resolve, reject) => {
     axios

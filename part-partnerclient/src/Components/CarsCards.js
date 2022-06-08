@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { deleteCars, getSingleCar, updateCar } from '../Api/Data/CarsData';
+import { deleteCars } from '../Api/Data/CarsData';
 import firebase from 'firebase/compat/app';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { Button } from 'reactstrap';
@@ -36,7 +37,7 @@ export default function CarsCards({ car, setCars, isLoggedIn }) {
         {
         car.uid === uid || isLoggedIn ? (
             <div>
-                <Button className="btn btn-primary">Edit</Button>
+                <Link to={`/cars-edit/${car.id}`} className="btn btn-warning">Edit</Link>
                 <Button
                     onClick={() => handleDelete('delete')}
                     className="btn btn-danger"
