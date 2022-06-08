@@ -154,7 +154,6 @@ namespace Part_PartnerAPI.Repositories
                         ImageUrl = @ImageUrl,
                         PartId = @PartId,
                         [Uid] = @uid
-                        [Uid] = @uid
                     WHERE Id = @id
                 ";
 
