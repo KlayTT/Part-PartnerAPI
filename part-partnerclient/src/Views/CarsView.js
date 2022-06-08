@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import getCars from '../Api/Data/CarsData';
+import { getCars } from '../Api/Data/CarsData';
 import { Link } from 'react-router-dom';
 import CarsCards from '../Components/CarsCards';
 
