@@ -183,7 +183,7 @@ namespace Part_PartnerAPI.Repositories
                         Miles = @miles,
                         DatePurchased = @datePurchased,
                         NextMatnience = @nextMatnience,
-                        Uid = @uid
+                        [Uid] = @uid
                     WHERE Id = @id 
                     ";
 
@@ -191,6 +191,7 @@ namespace Part_PartnerAPI.Repositories
                     cmd.Parameters.AddWithValue("@price", parts.Price);
                     cmd.Parameters.AddWithValue("@imageUrl", parts.ImageUrl);
                     cmd.Parameters.AddWithValue("@uid", parts.Uid);
+                    cmd.Parameters.AddWithValue("@id", parts.Id);
 
                     if (parts.Miles == null)
                     {
