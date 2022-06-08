@@ -33,7 +33,9 @@ export default function CarsCards({ car, setCars, isLoggedIn }) {
                 <h5 className="card-title">{car.name}</h5>
                 <p className="card-text">{car.year}</p>
                 <p className="card-text">{car.color}</p>
-                <Button className="btn btn-primary">View</Button>
+                <Link to={`/cars-single/${car.id}`} className="btn btn-success">
+                    View
+                </Link>
         {
         car.uid === uid || isLoggedIn ? (
             <div>
