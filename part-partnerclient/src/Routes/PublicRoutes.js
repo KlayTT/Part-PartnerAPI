@@ -11,6 +11,7 @@ import PartsView from '../Views/PartsView';
 import SinglePartView from '../Views/SinglePartView';
 import NewParts from '../Views/NewParts';
 import UpdateParts from '../Views/UpdateParts';
+import ProfilesView from '../Views/ProfileView';
 
 export default function PublicRoutes({ isLoggedIn }) {
     return (
@@ -25,6 +26,7 @@ export default function PublicRoutes({ isLoggedIn }) {
             <Route exact path="/parts-single/:id" element={isLoggedIn ? <SinglePartView /> : <Login />} />
             <Route exact path="/parts-form" element={isLoggedIn ? <NewParts /> : <Login />} />
             <Route exact path="/parts-edit/:id" element={isLoggedIn ? <UpdateParts /> : <Login />} />
+            <Route exact path="/users" element={isLoggedIn ? <ProfilesView /> : <Login />} />
         </Routes>
   );
 }

@@ -55,7 +55,7 @@ const updateUser = (user) => new Promise((resolve, reject) => {
     });
 });
 
-const deleteUser = (user) => new Promise((resolve, reject) => {
+const deleteUserSql = (user) => new Promise((resolve, reject) => {
     return getToken().then((token) => {
         axios
             .post(`${dbUrl}`, user, {
@@ -73,5 +73,5 @@ export {
     getUsersByFuid,
     createUser,
     updateUser,
-    deleteUser
+    deleteUserSql
 }
