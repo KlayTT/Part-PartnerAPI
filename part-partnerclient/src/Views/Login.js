@@ -29,7 +29,7 @@ export default function Login() {
                         <FormGroup>
                             <Label for="login-password">Password
                             </Label>
-                            <Input id="login-password" type="text" autoFocus onChange={e => setPassword(e.target.value)} />
+                            <Input id="login-password" type="password" autoFocus onChange={e => setPassword(e.target.value)} />
                         </FormGroup>
                         <FormGroup>
                             <Button id="login-button">Login
