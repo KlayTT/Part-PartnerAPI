@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import SingleCar from '../Components/SingleCar';
 import { getSingleCar } from '../Api/Data/CarsData';
 
-export default function SingleCarView() {
+export default function SingleCarView({ isLoggedIn }) {
     const [editItem, setEditItem] = useState({});
     const { id } = useParams();
 

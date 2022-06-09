@@ -9,6 +9,13 @@
     width: 400px;
     height: 100px;
     margin: 20px;
+
+}
+
+#single-profile-cards {
+    width: 400px;
+    height: 140px;
+    margin: 20px;
 }
 
 .profile-body {
@@ -16,4 +23,17 @@
     flex-direction: column;
     justify-content: space-between;
     text-align: center;
+}
+
+.user-parts, .user-cars {
+    padding: 10px;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    background-color: #36454F;
+
+    h4 {
+        color: white;
+    }
 }

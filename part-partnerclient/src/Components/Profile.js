@@ -35,10 +35,10 @@ export default function Profile({ profile, setProfile, isLoggedIn }) {
                 {
                     profile.firebaseUserId === uid || isLoggedIn ? (
                         <div>
-                            <Link to={`/users-single/${profile.id}`} className="btn btn-success">
+                            <Link to={`/users-single/${profile.firebaseUserId}`} className="btn btn-success">
                                 View
                             </Link>
-                            <Link to={`/users-edit/${profile.id}`} className="btn btn-warning">Edit</Link>
+                            <Link to={`/users-edit/${profile.firebaseUserId}`} className="btn btn-warning">Edit</Link>
                             <Button
                                 onClick={() => handleDelete('delete')}
                                 className="btn btn-danger"
@@ -55,3 +55,7 @@ export default function Profile({ profile, setProfile, isLoggedIn }) {
         </div >
         );
 }
+
+Profile.propTypes = {
+    profile: PropTypes.shape(PropTypes.obj).isRequired,
+};
