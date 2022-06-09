@@ -7,6 +7,7 @@ import { onLoginStatusChange } from './Api/authManager';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { getUsers } from './Api/Data/UsersData';
 import PublicRoutes from './Routes/PublicRoutes';
+import NavbarComponent from './Components/Navbar';
 
 
 const firebaseConfig = {
@@ -34,6 +35,7 @@ function App() {
 
   return (
       <div>
+          <NavbarComponent isLoggedIn={isLoggedIn} />
           <PublicRoutes isLoggedIn={isLoggedIn} />
       </div>
   );

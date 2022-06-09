@@ -18,6 +18,7 @@ export default function PublicRoutes({ isLoggedIn }) {
     return (
         <Routes>
             <Route exact path="/" element={isLoggedIn ? <Home /> : <Login />} />
+            <Route exact path="/login" element={isLoggedIn ? <Home /> : <Login />} />
             <Route exact path="/register" element={isLoggedIn ? <Home /> : <Register />} />
             <Route exact path="/cars" element={isLoggedIn ? <CarsView /> : <Login />} />
             <Route exact path="/cars-single/:id" element={isLoggedIn ? <SingleCarView /> : <Login />} />

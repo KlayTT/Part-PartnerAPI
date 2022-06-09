@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import SingleCar from '../Components/SingleCar';
 import { getSingleCar } from '../Api/Data/CarsData';
 
@@ -13,6 +13,11 @@ export default function SingleCarView({ isLoggedIn }) {
     return (
         <>
             <div className="single-car-view">
+                <>
+                    <Link to={`/cars`}>
+                        <button type="button" className="btn btn-danger back-btn">Back</button>
+                    </Link>
+                </>
                 <h1>{editItem.name}</h1>
                 <div className="single-car-body">
                     <SingleCar car={editItem} />
