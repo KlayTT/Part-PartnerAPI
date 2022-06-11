@@ -45,7 +45,7 @@ const createUser = (user) => new Promise((resolve, reject) => {
 const updateUser = (user) => new Promise((resolve, reject) => {
     return getToken().then((token) => {
         axios
-            .post(`${dbUrl}`, user, {
+            .post(`${dbUrl}/${user.firebaseUserId}`, user, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
