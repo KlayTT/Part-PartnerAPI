@@ -101,7 +101,7 @@ namespace Part_PartnerAPI.Repositories
                     cmd.CommandText = @"
                     INSERT INTO Users (UserName, Email, FirebaseUserId)
                     OUTPUT INSERTED.ID
-                    VALUES ('@userName', '@email','@firebaseUserId')
+                    VALUES (@userName, @email,@firebaseUserId)
                     ";
                     cmd.Parameters.AddWithValue("@userName", users.UserName);
                     cmd.Parameters.AddWithValue("@email", users.Email);
