@@ -8,7 +8,7 @@ import { updateUser } from '../Api/Data/UsersData';
     email: ''
 };
 
-export default function UserForm({ user = {} }) {
+export default function UserForm({ profile = {} }) {
     const [formInput, setFormInput] = useState(initialState);
     const navigate = useNavigate();
 
@@ -16,19 +16,19 @@ export default function UserForm({ user = {} }) {
         let isMounted = true;
 
         if (isMounted) {
-            if (user.id) {
+            if (profile.id) {
                 setFormInput({
-                    id: user.id,
-                    firebaseUserId: user.firebaseUserId,
-                    userName: user.userName,
-                    email: user.email,
+                    id: profile.id,
+                    firebaseUserId: profile.firebaseUserId,
+                    userName: profile.userName,
+                    email: profile.email,
                 })
             }
         }
         return () => {
             isMounted = false;
         };
-    }, [user]);
+    }, [profile]);
 
     const handleChange = (e) => {
         setFormInput((prevState) => ({
@@ -44,7 +44,7 @@ export default function UserForm({ user = {} }) {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (user.id) {
+        if (profile.id) {
             updateUser(formInput).then(() => {
                 resetForm();
                 navigate('/users')
@@ -98,5 +98,5 @@ export default function UserForm({ user = {} }) {
 }
 
 UserForm.propTypes = {
-    user: PropTypes.shape({}).isRequired
+    profile: PropTypes.shape({}).isRequired
 };

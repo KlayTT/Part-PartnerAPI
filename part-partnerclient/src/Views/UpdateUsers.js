@@ -20,7 +20,7 @@ export default function UpdateUser() {
     return (
         <div className="user-form-container">
             <h1 className="edit-user-header">Edit {editProfile.userName}'s Profile</h1>
-            <UserForm user={editProfile} />
+            <UserForm profile={editProfile} />
         </div>
     );
 }
