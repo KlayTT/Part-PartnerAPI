@@ -100,3 +100,7 @@ export default function UserForm({ profile = {} }) {
 UserForm.propTypes = {
     profile: PropTypes.shape({}).isRequired
 };
+
+UserForm.defaultProps = {
+    obj: {},
+};

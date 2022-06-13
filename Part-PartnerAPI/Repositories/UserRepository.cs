@@ -124,8 +124,8 @@ namespace Part_PartnerAPI.Repositories
                     cmd.CommandText = @"
                     UPDATE Users 
                     SET 
-                     UserName = @name,
-                     Email = @name,
+                     UserName = @userName,
+                     Email = @email
                     WHERE FirebaseUserId = @firebaseUserId
                     ";
                     cmd.Parameters.AddWithValue("@userName", users.UserName);

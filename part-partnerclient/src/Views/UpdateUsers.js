@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
-import { getUsers } from '../Api/Data/UsersData';
+import { getUsersByFuid } from '../Api/Data/UsersData';
 import UserForm from '../Components/UserForm';
 
 export default function UpdateUser() {
@@ -9,8 +9,9 @@ export default function UpdateUser() {
 
     useEffect(() => {
         let isMounted = true;
+        console.log(firebaseUserId)
         if (isMounted) {
-            getUsers(firebaseUserId).then(setEditProfile);
+            getUsersByFuid(firebaseUserId).then(setEditProfile);
         }
         return () => {
             isMounted = false;
