@@ -17,8 +17,8 @@ export default function Login() {
 
     return (
         <div className="login-container">
-            <div className="body-container">
-                <h1> Hi! Please Login </h1>
+            <div className="text-center">
+                <h1 className="welcome"> Welcome </h1>
                 <Form onSubmit={loginSubmit}>
                     <fieldset>
                         <FormGroup>
