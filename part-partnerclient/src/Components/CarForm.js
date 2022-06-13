@@ -122,11 +122,6 @@ export default function CarForm({ obj }) {
                         </button>
                     </form>
                 </div>
-                <div
-                    className="card-footer text-muted"
-                >
-                    Car Creator for Stock
-                </div>
             </div>
         </>
     );

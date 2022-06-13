@@ -1,4 +1,3 @@
-/// <reference path="carscards.js" />
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -56,8 +55,9 @@ export default function Profile({ profile, setProfile, isLoggedIn }) {
 }
 
 Profile.propTypes = {
-    profile: PropTypes.shape(PropTypes.obj).isRequired,
-};
-
-
-// <Link to={`/users-edit/${profile.firebaseUserId}`} className="btn btn-warning">Edit</Link>
+    profile: PropTypes.shape({
+        firebaseUserId: PropTypes.string,
+        userName: PropTypes.string,
+        email: PropTypes.string,
+    }).isRequired
+}

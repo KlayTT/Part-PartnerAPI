@@ -57,7 +57,9 @@ export default function SingleProfile({ profile, setProfile, isLoggedIn }) {
 };
 
 SingleProfile.propTypes = {
-    profile: PropTypes.shape(PropTypes.obj).isRequired,
+    profile: PropTypes.shape({
+        firebaseUserId: PropTypes.string,
+        userName: PropTypes.string,
+        email: PropTypes.string,
+    }).isRequired
 };
-
-//                                 <Link to={`/users-edit/${profile.firebaseUserId}`} className="btn btn-warning">Edit</Link>
