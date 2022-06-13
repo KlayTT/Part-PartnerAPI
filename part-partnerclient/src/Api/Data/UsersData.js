@@ -29,10 +29,10 @@ const getUsersByFuid = (firebaseUserId) => new Promise((resolve, reject) => {
     });
 });
 
-const createUser = (user) => new Promise((resolve, reject) => {
+const createUser = (profile) => new Promise((resolve, reject) => {
     return getToken().then((token) => {
         axios
-            .post(`${dbUrl}`, user, {
+            .post(`${dbUrl}`, profile, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -42,10 +42,10 @@ const createUser = (user) => new Promise((resolve, reject) => {
     });
 });
 
-const updateUser = (user) => new Promise((resolve, reject) => {
+const updateUser = (profile) => new Promise((resolve, reject) => {
     return getToken().then((token) => {
         axios
-            .post(`${dbUrl}`, user, {
+            .patch(`${dbUrl}/${profile.firebaseUserId}`, profile, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -55,10 +55,10 @@ const updateUser = (user) => new Promise((resolve, reject) => {
     });
 });
 
-const deleteUserSql = (user) => new Promise((resolve, reject) => {
+const deleteUserSql = (profile) => new Promise((resolve, reject) => {
     return getToken().then((token) => {
         axios
-            .post(`${dbUrl}`, user, {
+            .post(`${dbUrl}`, profile, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

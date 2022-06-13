@@ -13,6 +13,7 @@ import NewParts from '../Views/NewParts';
 import UpdateParts from '../Views/UpdateParts';
 import ProfilesView from '../Views/ProfileView';
 import SingleProfileView from '../Views/SingleProfileView';
+import UpdateUsers from '../Views/UpdateUsers';
 
 export default function PublicRoutes({ isLoggedIn }) {
     return (
@@ -30,6 +31,7 @@ export default function PublicRoutes({ isLoggedIn }) {
             <Route exact path="/parts-edit/:id" element={isLoggedIn ? <UpdateParts /> : <Login />} />
             <Route exact path="/users" element={isLoggedIn ? <ProfilesView /> : <Login />} />
             <Route exact path="/users-single/:firebaseUserId" element={isLoggedIn ? <SingleProfileView /> : <Login />} />
+            <Route exact path="/users-edit/:firebaseUserId" element={isLoggedIn ? <UpdateUsers /> : <Login />} />
         </Routes>
   );
 }
