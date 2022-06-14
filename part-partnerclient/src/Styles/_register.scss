@@ -10,7 +10,9 @@
     background-color: #367588;
     color: white;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: #2D4256;
 
     @media only screen and (max-width: 1024px) {
         width: 60%;

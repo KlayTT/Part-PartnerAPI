@@ -16,7 +16,7 @@ export default function CarsView({ isLoggedIn }) {
     }, []);
 
     return (
-        <div id="car-container">
+        <div className="car-container">
                 <>
                     <Link to={`/cars-form`}>
                         <button type="button" className="btn btn-success edit-btn">Add</button>

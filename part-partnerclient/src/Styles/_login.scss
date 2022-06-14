@@ -1,20 +1,27 @@
 .login-container {
+    display: flex;
+    background-color: #36454F;
+}
+
+.login-form {
     background-color: #367588;
-    margin: 0px;
-}
-
-
-
-#login-email, #login-password {
-  width: 20%;
-  margin: auto;
-
-  @media only screen and (max-width: 1024px) {
     width: 40%;
-  }
+    margin: 20px auto;
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: #2D4256;
+    text-align: center;
+
+    @media only screen and (max-width: 1024px) {
+        width: 60%;
+    }
 }
+
 
 
 #login-button {
+
     background-color: #36454F;
 }

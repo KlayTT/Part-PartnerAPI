@@ -27,7 +27,7 @@ export default function CarsCards({ car, setCars, isLoggedIn }) {
 
     return (
     
-        <div className="card" id="car-cards">
+        <div className="car-cards">
             <img className="card-img-top" src={car.imageUrl} alt="Car" />
             <div className="car-body">
                 <h5 className="card-title">{car.name}</h5>
@@ -38,16 +38,15 @@ export default function CarsCards({ car, setCars, isLoggedIn }) {
                 </Link>
         {
         car.uid === uid || isLoggedIn ? (
-            <div>
-                <Link to={`/cars-edit/${car.id}`} className="btn btn-warning">Edit</Link>
-                <Button
-                    onClick={() => handleDelete('delete')}
-                    className="btn btn-danger"
-                    type="button"
-                >
-                    Delete
-                </Button>
-            </div>
+                        <>
+                            <Link to={`/cars-edit/${car.id}`} className="btn btn-warning">Edit</Link><Button
+                            onClick={() => handleDelete('delete')}
+                            className="btn btn-danger"
+                            type="button"
+                        >
+                            Delete
+                        </Button>
+                        </>
         ) : (
             ""
         )

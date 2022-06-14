@@ -5,14 +5,18 @@
     background-color: #36454F;
 }
 
-#part-cards {
-    width: 400px;
-    height: 530px;
-    margin: 20px;
-
-    .card-img-top {
-        max-height: 250px;
-    }
+.part-cards {
+    overflow-x: hidden;
+    width: 20%;
+    height: 20%;
+    margin: 20px auto;
+    color: white;
+    background-color: transparent;
+    border-radius: 30px;
+    border-style: solid;
+    border-color: #2D4256;
+    justify-content: center;
+    overflow-x: hidden;
 }
 
 .part-body {
