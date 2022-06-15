@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Button, Form, Input } from 'reactstrap';
 import { useNavigate, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { createParts, updateParts } from '../Api/Data/PartsData';
@@ -64,8 +65,8 @@ export default function PartForm({ obj }) {
                 <div
                     className="card-body" id="parts-form"
                 >
-                    <form className="create-form" onSubmit={handleSubmit}>
-                        <input
+                    <Form className="create-form" onSubmit={handleSubmit}>
+                        <Input
                             id="name"
                             name="name"
                             value={formInput.name}
@@ -74,7 +75,7 @@ export default function PartForm({ obj }) {
                             placeholder="Item Name"
                         />
                         <p />
-                        <input
+                        <Input
                             id="price"
                             name="price"
                             value={formInput.price}
@@ -83,7 +84,7 @@ export default function PartForm({ obj }) {
                             placeholder="Item Price"
                         />
                         <p />
-                        <input
+                        <Input
                             id="imageUrl"
                             name="imageUrl"
                             value={formInput.imageUrl}
@@ -92,7 +93,7 @@ export default function PartForm({ obj }) {
                             placeholder="Item ImageUrl"
                         />
                         <p />
-                        <input
+                        <Input
                             id="miles"
                             name="miles"
                             value={formInput.miles}
@@ -101,7 +102,7 @@ export default function PartForm({ obj }) {
                             placeholder="Item Miles"
                         />
                         <p />
-                        <input
+                        <Input
                             id="datePurchased"
                             name="datePurchased"
                             value={formInput.datePurchased}
@@ -110,7 +111,7 @@ export default function PartForm({ obj }) {
                             placeholder="Item Date Purchased"
                         />
                         <p />
-                        <input
+                        <Input
                             id="nextMatnience"
                             name="nextMatnience"
                             value={formInput.nextMatnience}
@@ -119,7 +120,7 @@ export default function PartForm({ obj }) {
                             placeholder="Item Next Matnience"
                         />
                         <p />
-                        <input
+                        <Input
                             id="uid"
                             name="uid"
                             value={formInput.uid}
@@ -128,13 +129,13 @@ export default function PartForm({ obj }) {
                             placeholder="User id"
                         />
                         <p />
-                        <button
+                        <Button
                             type="submit"
                             className="btn btn-info"
                         >
                             {obj.id ? 'Edit' : 'Create'}
-                        </button>
-                    </form>
+                        </Button>
+                    </Form>
                 </div>
             </div>
         </>
