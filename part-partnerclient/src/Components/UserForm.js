@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Button, Form, FormGroup, Input } from 'reactstrap';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { updateUser } from '../Api/Data/UsersData';
@@ -55,13 +56,14 @@ export default function UserForm({ profile = {} }) {
         return (
             <>
                 <div
-                    className="create-forms text-center"
+                    className="create-forms"
                 >  
                     <div
                         className="card-body" id="cars-form"
                     >
-                        <form className="create-form" onSubmit={handleSubmit}>
-                            <input
+                        <Form className="create-form" onSubmit={handleSubmit}>
+                            <FormGroup>
+                                <Input
                                 id="userName"
                                 name="userName"
                                 value={formInput.userName || ''}
@@ -69,8 +71,9 @@ export default function UserForm({ profile = {} }) {
                                 required
                                 placeholder="User Name"
                             />
-                            <p />
-                            <input
+                            </FormGroup>
+                            <FormGroup>
+                                <Input
                                 id="email"
                                 name="email"
                                 value={formInput.email || ''}
@@ -78,14 +81,16 @@ export default function UserForm({ profile = {} }) {
                                 required
                                 placeholder="User Email"
                             />
-                            <p />
-                            <button
+                            </FormGroup>
+                            <FormGroup>
+                                <Button
                                 type="submit"
                                 className="btn btn-info"
                             >
                                 Edit
-                            </button>
-                        </form>
+                                </Button>
+                            </FormGroup>
+                        </Form>
                     </div>
                 </div>
             </>

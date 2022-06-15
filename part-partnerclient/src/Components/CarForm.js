@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Button, Form, Input } from 'reactstrap';
 import { useNavigate, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { createCars, updateCars } from '../Api/Data/CarsData';
@@ -62,8 +63,8 @@ export default function CarForm({ obj }) {
                 <div
                     className="card-body" id="cars-form"
                 >
-                    <form className="create-form" onSubmit={handleSubmit}>
-                        <input
+                    <Form className="create-form" onSubmit={handleSubmit}>
+                        <Input
                             id="name"
                             name="name"
                             value={formInput.name}
@@ -72,7 +73,7 @@ export default function CarForm({ obj }) {
                             placeholder="Item Name"
                         />
                         <p />
-                        <input
+                        <Input
                             id="year"
                             name="year"
                             value={formInput.year}
@@ -81,7 +82,7 @@ export default function CarForm({ obj }) {
                             placeholder="Item Year"
                         />
                         <p />
-                        <input
+                        <Input
                             id="color"
                             name="color"
                             value={formInput.color}
@@ -90,7 +91,7 @@ export default function CarForm({ obj }) {
                             placeholder="Item Color"
                         />
                         <p />
-                        <input
+                        <Input
                             id="imageUrl"
                             name="imageUrl"
                             value={formInput.imageUrl}
@@ -99,7 +100,7 @@ export default function CarForm({ obj }) {
                             placeholder="Item Image"
                         />
                         <p />
-                        <input
+                        <Input
                             id="uid"
                             name="uid"
                             value={formInput.uid}
@@ -108,13 +109,13 @@ export default function CarForm({ obj }) {
                             placeholder="User id"
                         />
                         <p />
-                        <button
+                        <Button
                             type="submit"
                             className="btn btn-info"
                         >
                             {obj.id ? 'Edit' : 'Create'}
-                        </button>
-                    </form>
+                        </Button>
+                    </Form>
                 </div>
             </div>
         </>
