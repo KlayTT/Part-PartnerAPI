@@ -28,7 +28,7 @@ export default function Profile({ profile, setProfile, isLoggedIn }) {
     };
 
     return (
-        <div className="card" id="profile-cards">
+        <div className="profile-cards">
             <div className="profile-body">
                 <h5 className="card-title">{profile.userName}</h5>
                 {
@@ -36,7 +36,8 @@ export default function Profile({ profile, setProfile, isLoggedIn }) {
                         <div>
                             <Link to={`/users-single/${profile.firebaseUserId}`} className="btn btn-success">
                                 View
-                            </Link>         
+                            </Link>
+                            <Link to={`/users-edit/${profile.firebaseUserId}`} className="btn btn-warning">Edit</Link>
                             <Button
                                 onClick={() => handleDelete('delete')}
                                 className="btn btn-danger"

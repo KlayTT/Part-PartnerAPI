@@ -16,7 +16,7 @@ export default function PartsView({ isLoggedIn }) {
     }, []);
 
     return (
-        <div id="part-container">
+        <div className="part-container">
             <>
                 <Link to={`/parts-form`}>
                     <button type="button" className="btn btn-success edit-btn">Add</button>

@@ -29,7 +29,7 @@ export default function SinglePart({ part, isLoggedIn }) {
     };
 
     return (
-        <div className="card part-cards" id="part-cards">
+        <div className="part-cardss">
             <img src={part.imageUrl} className="card-img-top" alt="Part" />
             <div className="card-body">
                 <h5 className="card-title">{part.name}</h5>

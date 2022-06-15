@@ -59,18 +59,12 @@ export default function PartForm({ obj }) {
     return (
         <>
             <div
-                className="card text-center"
+                className="create-forms text-center"
             >
-                <h2
-                    className="card-header"
-                >
-                    New Stuff
-                </h2>
                 <div
                     className="card-body" id="parts-form"
                 >
-                    <h5 className="card-title">Enter new Car Stock</h5>
-                    <form onSubmit={handleSubmit}>
+                    <form className="create-form" onSubmit={handleSubmit}>
                         <input
                             id="name"
                             name="name"

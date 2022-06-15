@@ -55,18 +55,12 @@ export default function UserForm({ profile = {} }) {
         return (
             <>
                 <div
-                    className="card text-center"
-                >
-                    <h2
-                        className="card-header"
-                    >
-                        New Stuff
-                    </h2>
+                    className="create-forms text-center"
+                >  
                     <div
                         className="card-body" id="cars-form"
                     >
-                        <h5 className="card-title">Enter new Car Stock</h5>
-                        <form onSubmit={handleSubmit}>
+                        <form className="create-form" onSubmit={handleSubmit}>
                             <input
                                 id="userName"
                                 name="userName"
@@ -84,6 +78,7 @@ export default function UserForm({ profile = {} }) {
                                 required
                                 placeholder="User Email"
                             />
+                            <p />
                             <button
                                 type="submit"
                                 className="btn btn-info"

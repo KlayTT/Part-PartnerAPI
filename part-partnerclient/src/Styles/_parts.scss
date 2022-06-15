@@ -1,4 +1,4 @@
-#part-container {
+.part-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -14,9 +14,21 @@
     background-color: transparent;
     border-radius: 30px;
     border-style: solid;
-    border-color: #2D4256;
+    border-color: #359EB4;
     justify-content: center;
     overflow-x: hidden;
+}
+
+.part-cardss {
+    width: 100%;
+    margin: 20px auto;
+    color: white;
+    text-align: center;
+    background-color: transparent;
+    border-radius: 30px;
+    border-style: solid;
+    border-color: #359EB4;
+    justify-content: center;
 }
 
 .part-body {

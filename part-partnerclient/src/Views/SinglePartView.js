@@ -12,17 +12,17 @@ export default function SinglePartView() {
     }, []);
     return (
         <>
-            <div className="single-part-view">
-                <>
-                    <Link to={`/parts`}>
-                        <button type="button" className="btn btn-danger back-btn">Back</button>
-                    </Link>
-                </>
+            <div className="back-button">
+                <Link to={`/parts`}>
+                    <button type="button" className="btn btn-danger back-btn">Back</button>
+                </Link>
+            <div className="part-container">
                 <h1>{editItem.name}</h1>
                 <div className="single-part-body">
                     <SinglePart part={editItem} />
                 </div>
-            </div>
+                </div>
+                </div>
         </>
     );
 }
