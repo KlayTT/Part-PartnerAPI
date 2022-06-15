@@ -1,0 +1,26 @@
+
+.register-container {
+    background-color: #36454F;
+    display: flex;
+}
+
+.register-form {
+    width: 40%;
+    margin: 20px auto;
+    background-color: #367588;
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: #2D4256;
+
+    @media only screen and (max-width: 1024px) {
+        width: 60%;
+    }
+}
+
+#register-btn {
+    display: block;
+    margin: 0 auto;
+    background-color: #36454F;
+}

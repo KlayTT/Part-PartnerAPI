@@ -26,7 +26,7 @@ export default function PartsCards({ part, setParts, isLoggedIn }) {
     };
 
     return (
-        <div className="card" id="part-cards">
+        <div className="part-cards">
             <img className="card-img-top" src={part.imageUrl} alt="Part" />
             <div className="part-body">
                 <h5 className="card-title">{part.name}</h5>
@@ -39,7 +39,7 @@ export default function PartsCards({ part, setParts, isLoggedIn }) {
                 </Link>
                 {
                     part.uid === uid || isLoggedIn ? (
-                        <div>
+                        <>
                             <Link to={`/parts-edit/${part.id}`} className="btn btn-warning">Edit</Link>
                             <Button
                                 onClick={() => handleDelete('delete')}
@@ -48,7 +48,7 @@ export default function PartsCards({ part, setParts, isLoggedIn }) {
                             >
                                 Delete
                             </Button>
-                        </div>
+                        </>
                     ) : (
                         ""
                     )

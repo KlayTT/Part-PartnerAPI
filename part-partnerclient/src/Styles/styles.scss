@@ -4,8 +4,28 @@
 @import 'parts';
 @import 'profiles';
 @import 'navbar';
+@import 'login';
+@import 'register';
+@import 'carForm';
 
 html, body {
     margin: 0;
     background-color: #36454F;
+    overflow-x: hidden;
+}
+
+.back-button {
+    background-color: #36454F;
+}
+
+h1 {
+    color: white;
+}
+
+h2 {
+    color: white;
+}
+
+h5 {
+    color: white;
 }

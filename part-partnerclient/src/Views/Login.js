@@ -17,9 +17,8 @@ export default function Login() {
 
     return (
         <div className="login-container">
-            <div className="body-container">
-                <h1> Hi! Please Login </h1>
-                <Form onSubmit={loginSubmit}>
+            <Form onSubmit={loginSubmit} className="login-form">
+                    <h1>Welcome</h1>
                     <fieldset>
                         <FormGroup>
                             <Label for="login-email">Email
@@ -35,13 +34,12 @@ export default function Login() {
                             <Button id="login-button">Login
                             </Button>
                         </FormGroup>
-                        <em>
+                    <FormGroup>
                             Not Registered? <Link to={'/register'}>Register
                                 </Link>
-                        </em>
+                    </FormGroup>
                     </fieldset>
                 </Form>
-            </div>
         </div>
         );
 }

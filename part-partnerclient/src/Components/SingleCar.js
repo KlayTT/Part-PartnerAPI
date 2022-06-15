@@ -29,7 +29,7 @@ export default function SingleCar({ car, isLoggedIn }) {
     };
 
     return (
-        <div className="card car-cards" id="car-cards">
+        <div className="car-cardss">
             <img src={car.imageUrl} className="card-img-top" alt="Car" />
             <div className="card-body">
                 <h5 className="card-title">{car.name}</h5>

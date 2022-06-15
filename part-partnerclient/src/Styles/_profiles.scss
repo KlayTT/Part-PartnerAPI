@@ -5,17 +5,33 @@
     background-color: #36454F;
 }
 
-#profile-cards {
+.profile-cards {
     width: 400px;
     height: 100px;
     margin: 20px;
-
+    color: white;
+    background-color: transparent;
+    border-radius: 30px;
+    border-style: solid;
+    border-color: #359EB4;
 }
 
-#single-profile-cards {
-    width: 400px;
-    height: 140px;
-    margin: 20px;
+.single-profile-cards {
+    width: 30%;
+    height: 20%;
+    justify-content: center;
+    border-radius: 30px;
+    border-style: solid;
+    border-color: #359EB4;
+    color: white;
+    background-color: transparent;
+}
+
+.profile {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #36454F;
 }
 
 .profile-body {

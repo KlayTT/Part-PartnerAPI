@@ -30,7 +30,7 @@ export default function SingleProfile({ profile, setProfile, isLoggedIn }) {
     };
 
     return (
-        <div className="card profile-cards" id="single-profile-cards">
+        <div className="single-profile-cards">
             <div className="card-body">
                 <h5 className="card-title">{profile.userName}</h5>
                 <div className="button-row">
@@ -38,7 +38,7 @@ export default function SingleProfile({ profile, setProfile, isLoggedIn }) {
                         profile.firebaseUserId === uid || isLoggedIn ? (
                             <div>
                                 <p className="card-text">User Id : {profile.firebaseUserId}</p>
-                                <Link to={`/users-edit/${profile.firebaseUserId}`} className="btn btn-warning">Edit</Link>
+                                <p className="card-text">User Email : {profile.email}</p>
                                 <Button
                                     onClick={() => handleDelete('delete')}
                                     className="btn btn-danger"

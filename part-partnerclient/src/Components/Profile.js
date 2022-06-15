@@ -28,7 +28,7 @@ export default function Profile({ profile, setProfile, isLoggedIn }) {
     };
 
     return (
-        <div className="card" id="profile-cards">
+        <div className="profile-cards">
             <div className="profile-body">
                 <h5 className="card-title">{profile.userName}</h5>
                 {
