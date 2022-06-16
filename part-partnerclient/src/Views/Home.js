@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import img1 from '../Images/PartPartnerstparent.png';
+import img1 from '../Images/finalLogo.png';
 import img2 from '../Images/carExample.png';
 import img3 from '../Images/partExample.png';
 import img4 from '../Images/slide1Photo.jpg';
