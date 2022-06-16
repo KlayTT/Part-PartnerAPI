@@ -37,7 +37,7 @@ export default function SingleProfile({ profile, setProfile, isLoggedIn }) {
                     {
                         profile.firebaseUserId === uid || isLoggedIn ? (
                             <div>
-                                <p className="card-text">User Id : {profile.firebaseUserId}</p>
+                                <p className="card-text">Tracking Id : {profile.firebaseUserId}</p>
                                 <p className="card-text">User Email : {profile.email}</p>
                                 <Button
                                     onClick={() => handleDelete('delete')}
